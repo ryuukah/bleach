@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Image</title>
+  <title>Music</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="container">
+  <div class="music-player">
+
     <img
       src="image.jpg"
-      alt="Click to play music"
+      alt="Music"
       id="musicImage"
       class="music-image"
     >
 
-    <audio id="audio" src="whereufrom.mp3"></audio>
-  </main>
+    <div class="cd" id="cd">
+      <div class="cd-center"></div>
+    </div>
+
+  </div>
+
+  <audio id="audio" src="whereufrom.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
