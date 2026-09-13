@@ -15,20 +15,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
 
-.container {
+.music-player {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
+  gap: 14px;
 }
 
+/* Album image */
 .music-image {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
   display: block;
-  width: 220px;
-  height: auto;
   cursor: pointer;
   user-select: none;
   -webkit-user-drag: none;
@@ -40,5 +41,69 @@ body {
 }
 
 .music-image:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+}
+
+/* CD */
+.cd {
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  position: relative;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      #d7d7d7 0px,
+      #bdbdbd 1px,
+      #eeeeee 2px,
+      #a9a9a9 3px
+    );
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+/* CD shine */
+.cd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    transparent 35%,
+    rgba(255, 255, 255, 0.15) 55%,
+    transparent 70%
+  );
+}
+
+/* Center hole */
+.cd-center {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #191919;
+  border: 3px solid #c5c5c5;
+  z-index: 2;
+}
+
+/* Spinning state */
+.cd.spinning {
+  animation: spin 2.2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
